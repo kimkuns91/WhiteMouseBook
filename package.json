@@ -51,9 +51,9 @@
         "react-image-file-resizer": "^0.4.8",
         "react-intersection-observer": "^9.10.3",
         "react-linkify-it": "^1.0.8",
-        "react-markdown": "^9.0.1",
+        "react-markdown": "^8.0.7",
         "stream-chat": "^8.37.0",
-        "stream-chat-react": "^11.23.0",
+        "stream-chat-react": "^10.19.0",
         "tailwind-merge": "^2.4.0",
         "tailwindcss-animate": "^1.0.7",
         "typescript": "^5.3.3",
@@ -83,8 +83,8 @@
         "react-intersection-observer/react": "19.0.0-rc-f994737d14-20240522",
         "stream-chat-react/react": "19.0.0-rc-f994737d14-20240522",
         "stream-chat-react/react-dom": "19.0.0-rc-f994737d14-20240522",
-        "stream-chat-react/react-markdown/react": "19.0.0-rc-f994737d14-20240522",
-        "stream-chat-react/react-markdown/react-dom": "19.0.0-rc-f994737d14-20240522",
-        "stream-chat-react/react-markdown/@types/react": "^19.0.0"
+        "react-markdown/react": "19.0.0-rc-f994737d14-20240522",
+        "react-markdown/react-dom": "19.0.0-rc-f994737d14-20240522",
+        "react-markdown/@types/react": "^19.0.0"
     }
 }
