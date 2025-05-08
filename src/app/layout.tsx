@@ -1,12 +1,13 @@
-import { Toaster } from "@/components/ui/toaster";
-import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import "./globals.css";
+
 import type { Metadata } from "next";
+import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
+import ReactQueryProvider from "./ReactQueryProvider";
 import { ThemeProvider } from "next-themes";
-import localFont from "next/font/local";
+import { Toaster } from "@/components/ui/toaster";
 import { extractRouterConfig } from "uploadthing/server";
 import { fileRouter } from "./api/uploadthing/core";
-import "./globals.css";
-import ReactQueryProvider from "./ReactQueryProvider";
+import localFont from "next/font/local";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,7 +21,7 @@ const geistMono = localFont({
 export const metadata: Metadata = {
   title: {
     template: "%s | WhiteMouseBook",
-    default: "bugbook",
+    default: "WhiteMouseBook", 
   },
   description: "The social media app for powernerds",
 };
