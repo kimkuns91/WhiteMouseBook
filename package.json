@@ -27,6 +27,9 @@
         "@tiptap/pm": "^2.7.0",
         "@tiptap/react": "^2.7.0",
         "@tiptap/starter-kit": "^2.7.0",
+        "@types/node": "^20.11.24",
+        "@types/react": "^19.0.0",
+        "@types/react-dom": "^19.0.0",
         "@uploadthing/react": "^6.7.2",
         "arctic": "^1.9.1",
         "class-variance-authority": "^0.7.0",
@@ -49,13 +52,11 @@
         "stream-chat-react": "^11.23.0",
         "tailwind-merge": "^2.4.0",
         "tailwindcss-animate": "^1.0.7",
+        "typescript": "^5.3.3",
         "uploadthing": "^6.13.2",
         "zod": "^3.23.8"
     },
     "devDependencies": {
-        "@types/node": "^20.11.24",
-        "@types/react": "^19.0.0",
-        "@types/react-dom": "^19.0.0",
         "eslint": "^8.57.0",
         "eslint-config-next": "15.0.0-rc.0",
         "eslint-config-prettier": "^9.1.0",
@@ -63,7 +64,6 @@
         "prettier": "^3.3.2",
         "prettier-plugin-tailwindcss": "^0.6.5",
         "tailwindcss": "^3.4.1",
-        "typescript": "^5.3.3",
         "prisma": "^5.0.0"
     },
     "resolutions": {
@@ -81,8 +81,6 @@
         "react-hook-form/react": "19.0.0-rc-f994737d14-20240522",
         "react-intersection-observer/react": "19.0.0-rc-f994737d14-20240522",
         "stream-chat-react/react": "19.0.0-rc-f994737d14-20240522",
-        "stream-chat-react/react-dom": "19.0.0-rc-f994737d14-20240522",
-        "typescript": "^5.3.3",
-        "@types/node": "^20.11.24"
+        "stream-chat-react/react-dom": "19.0.0-rc-f994737d14-20240522"
     }
 }
