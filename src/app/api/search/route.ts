@@ -1,7 +1,8 @@
-import { validateRequest } from "@/auth";
-import prisma from "@/lib/prisma";
-import { getPostDataInclude, PostsPage } from "@/lib/types";
+import { PostsPage, getPostDataInclude } from "@/lib/types";
+
 import { NextRequest } from "next/server";
+import prisma from "@/lib/prisma";
+import { validateRequest } from "@/auth";
 
 export async function GET(req: NextRequest) {
   try {
@@ -23,20 +24,23 @@ export async function GET(req: NextRequest) {
         OR: [
           {
             content: {
-              search: searchQuery,
+              contains: searchQuery,
+              mode: 'insensitive'
             },
           },
           {
             user: {
               displayName: {
-                search: searchQuery,
+                contains: searchQuery,
+                mode: 'insensitive'
               },
             },
           },
           {
             user: {
               username: {
-                search: searchQuery,
+                contains: searchQuery,
+                mode: 'insensitive'
               },
             },
           },
