@@ -1,3 +1,5 @@
+import path from 'path'; // 이 줄 추가
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
@@ -19,7 +21,6 @@ const nextConfig = {
             destination: "/search?q=%23:tag",
         }, ];
     },
-    // 이 부분 추가
     webpack: (config) => {
         config.resolve.alias = {
             ...config.resolve.alias,
