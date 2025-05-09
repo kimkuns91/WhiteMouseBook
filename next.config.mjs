@@ -1,24 +1,23 @@
-import { fileURLToPath } from 'url';
-import path from 'path';
-
-const __filename = fileURLToPath(
-    import.meta.url);
-const __dirname = path.dirname(__filename);
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+    experimental: {
+        staleTimes: {
+            dynamic: 30,
+        },
+    },
+    serverExternalPackages: ["@node-rs/argon2"],
     images: {
         remotePatterns: [{
-            protocol: 'https',
-            hostname: 'utfs.io',
+            protocol: "https",
+            hostname: "utfs.io",
+            pathname: `/a/${process.env.NEXT_PUBLIC_UPLOADTHING_APP_ID}/*`,
         }, ],
     },
-    webpack: (config) => {
-        config.resolve.alias = {
-            ...config.resolve.alias,
-            '@': path.resolve(__dirname, 'src'),
-        };
-        return config;
+    rewrites: () => {
+        return [{
+            source: "/hashtag/:tag",
+            destination: "/search?q=%23:tag",
+        }, ];
     },
 };
 
