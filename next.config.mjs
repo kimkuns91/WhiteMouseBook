@@ -10,8 +10,16 @@ const nextConfig = {
         remotePatterns: [{
             protocol: "https",
             hostname: "utfs.io",
-            pathname: `/a/${process.env.NEXT_PUBLIC_UPLOADTHING_APP_ID}/*`,
-        }, ],
+            pathname: `/**`,
+        }, {
+            protocol: "https",
+            hostname: "3gmtn0alvu.ufs.sh",
+            pathname: "/**",
+        }, {
+            protocol: "https",
+            hostname: "lh3.googleusercontent.com",
+            pathname: "/**",
+        }],
     },
     rewrites: () => {
         return [{
@@ -22,4 +30,3 @@ const nextConfig = {
 };
 
 export default nextConfig;
-n

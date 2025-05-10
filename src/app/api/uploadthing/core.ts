@@ -8,7 +8,7 @@ const f = createUploadthing();
 
 export const fileRouter = {
   avatar: f({
-    image: { maxFileSize: "64MB" }
+    image: { maxFileSize: "128MB" }
   })
     .middleware(async () => {
       const { user } = await validateRequest();
@@ -28,10 +28,7 @@ export const fileRouter = {
         await new UTApi().deleteFiles(key);
       }
 
-      const newAvatarUrl = file.url.replace(
-        "/f/",
-        `/a/${process.env.NEXT_PUBLIC_UPLOADTHING_APP_ID}/`,
-      );
+      const newAvatarUrl = file.url;
 
       await Promise.all([
         prisma.user.update({
@@ -51,8 +48,8 @@ export const fileRouter = {
       return { avatarUrl: newAvatarUrl };
     }),
   attachment: f({
-    image: { maxFileSize: "4MB", maxFileCount: 5 },
-    video: { maxFileSize: "64MB", maxFileCount: 5 },
+    image: { maxFileSize: "1GB", maxFileCount: 5 },
+    video: { maxFileSize: "1GB", maxFileCount: 5 },
   })
     .middleware(async () => {
       const { user } = await validateRequest();
@@ -64,10 +61,7 @@ export const fileRouter = {
     .onUploadComplete(async ({ file }) => {
       const media = await prisma.media.create({
         data: {
-          url: file.url.replace(
-            "/f/",
-            `/a/${process.env.NEXT_PUBLIC_UPLOADTHING_APP_ID}/`,
-          ),
+          url: file.url,
           type: file.type.startsWith("image") ? "IMAGE" : "VIDEO",
         },
       });

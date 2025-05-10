@@ -1,20 +1,22 @@
 "use client";
 
-import { useSession } from "@/app/(main)/SessionProvider";
-import LoadingButton from "@/components/LoadingButton";
+import "./styles.css";
+
+import { ClipboardEvent, useRef } from "react";
+import { EditorContent, useEditor } from "@tiptap/react";
+import { ImageIcon, Loader2, X } from "lucide-react";
+import useMediaUpload, { Attachment } from "./useMediaUpload";
+
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import LoadingButton from "@/components/LoadingButton";
+import Placeholder from "@tiptap/extension-placeholder";
+import StarterKit from "@tiptap/starter-kit";
 import UserAvatar from "@/components/UserAvatar";
 import { cn } from "@/lib/utils";
-import Placeholder from "@tiptap/extension-placeholder";
-import { EditorContent, useEditor } from "@tiptap/react";
-import StarterKit from "@tiptap/starter-kit";
 import { useDropzone } from "@uploadthing/react";
-import { ImageIcon, Loader2, X } from "lucide-react";
-import Image from "next/image";
-import { ClipboardEvent, useRef } from "react";
+import { useSession } from "@/app/(main)/SessionProvider";
 import { useSubmitPostMutation } from "./mutations";
-import "./styles.css";
-import useMediaUpload, { Attachment } from "./useMediaUpload";
 
 export default function PostEditor() {
   const { user } = useSession();
@@ -46,6 +48,7 @@ export default function PostEditor() {
         placeholder: "What's crack-a-lackin'?",
       }),
     ],
+    immediatelyRender: false
   });
 
   const input =
@@ -209,6 +212,7 @@ function AttachmentPreview({
           alt="Attachment preview"
           width={500}
           height={500}
+          unoptimized
           className="size-fit max-h-[30rem] rounded-2xl"
         />
       ) : (

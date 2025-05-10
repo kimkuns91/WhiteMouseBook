@@ -1,20 +1,21 @@
 "use client";
 
-import { useSession } from "@/app/(main)/SessionProvider";
-import { PostData } from "@/lib/types";
 import { cn, formatRelativeDate } from "@/lib/utils";
+
+import BookmarkButton from "./BookmarkButton";
+import Comments from "../comments/Comments";
+import Image from "next/image";
+import LikeButton from "./LikeButton";
+import Link from "next/link";
+import Linkify from "../Linkify";
 import { Media } from "@prisma/client";
 import { MessageSquare } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
-import { useState } from "react";
-import Comments from "../comments/Comments";
-import Linkify from "../Linkify";
+import { PostData } from "@/lib/types";
+import PostMoreButton from "./PostMoreButton";
 import UserAvatar from "../UserAvatar";
 import UserTooltip from "../UserTooltip";
-import BookmarkButton from "./BookmarkButton";
-import LikeButton from "./LikeButton";
-import PostMoreButton from "./PostMoreButton";
+import { useSession } from "@/app/(main)/SessionProvider";
+import { useState } from "react";
 
 interface PostProps {
   post: PostData;
@@ -125,6 +126,7 @@ function MediaPreview({ media }: MediaPreviewProps) {
         alt="Attachment"
         width={500}
         height={500}
+        unoptimized
         className="mx-auto size-fit max-h-[30rem] rounded-2xl"
       />
     );
